@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+      <title>Angular GAE Init</title>
+  </head>
+
+  <body>
+
+    <h1>Initializing GAE with Angular.js</h1>
+
+    <div ng-controller="MainCtrl">
+
+        <div ng-show="backend_ready">
+            Initialized!
+
+            <button ng-click="getList()">Get Greetings</button>
+        </div>
+
+        <h2>Results</h2>
+        <div ng-repeat="r in results">
+          {[{ r.message }]}<br>
+        </div>
+
+    </div>
+
+    <script src="/static/lib/angular.min.js"></script>
+    <script src="/static/lib/angular-route.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/services/cloudendpoint.js"></script>
+    <script src="/static/js/controllers/mainController.js"></script>
+
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+  </body>
+</html>
