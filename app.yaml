@@ -9,6 +9,8 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+# Since the app is an SPA, we only need to handle the '/' route
+#   and let angular routing take care of the rest.
 - url: /
   static_files: templates/index.html
   upload: templates/index\.html
@@ -21,7 +23,8 @@ handlers:
 - url: /partials
   static_dir: static/partials
 
-# Endpoints handler: Must be /_ah/spi. Apps send requests to /_ah/api, but these are handled at /_ah/spi!!
+# Endpoints handler
+# Must be /_ah/spi. Apps send requests to /_ah/api, but these are handled at /_ah/spi
 # This code should be placed before main.app
 - url: /_ah/spi/.*
   script: event_endpoints.APPLICATION

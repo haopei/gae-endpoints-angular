@@ -3,7 +3,7 @@
 function init() {
     angular.element(document).ready(function() {
         // when document is ready
-        // run initapi() specified inside the angular $window.init2()
+        // run initapi() specified inside the angular $window.initapi()
         window.initapi();
     });
 }
@@ -12,8 +12,7 @@ angular.module('myApp')
     .controller('MainCtrl', function($scope, $window, eventapi) {
 
         $window.initapi = function() {
-            console.log('$window.initapi() called');
-            // apply the result of initapi
+            // apply the effect of initapi
             $scope.$apply($scope.load_api);
         };
 
@@ -31,8 +30,6 @@ angular.module('myApp')
         $scope.getList = function() {
             gapi.client.events.greetings.listGreeting().execute(function(resp) {
                 $scope.results = resp.items;
-                // is $apply necessary?
-                // $scope.$apply($scope.results);
                 console.log($scope.results);
             });
         };
