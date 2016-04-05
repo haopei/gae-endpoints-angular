@@ -2,6 +2,14 @@
 <html ng-app="myApp">
   <head>
       <title>Angular GAE Init</title>
+
+      <style>
+        section {
+          margin: 40px 20px;
+          border: 1px solid #ddd;
+          padding: 20px;
+        }
+      </style>
   </head>
 
   <body>
@@ -11,14 +19,35 @@
     <div ng-controller="MainCtrl">
 
         <div ng-show="backend_ready">
-            Initialized!
+          <h2>Endpoints API Initialized!</h2>
 
-            <button ng-click="getList()">Get Greetings</button>
-        </div>
+          <section>
+            <h3>Get Greeting by ID</h3>
+            <p>Enter 0, 1, or 2. Check console for results. </p>
+            <input type="text" ng-model="greetingId">
+            <button ng-click="getGreeting(greetingId)">Get Greeting</button>
+          </section>
 
-        <h2>Results</h2>
-        <div ng-repeat="r in results">
-          {[{ r.message }]}<br>
+          <section>
+            <h3>Get Greetings</h3>
+            <p>Get list of greetings from backend. List is hardcoded inside event_endpoints.py</p>
+            <button ng-click="getGreetingsList()">Get Greetings</button>
+
+            <h4>Results</h4>
+            <div ng-repeat="r in results">
+              {[{ r.message }]}<br>
+            </div>
+          </section>
+
+          <section>
+            <h3>Sign In</h3>
+            <p>Using OAuth2. Check console for results.</p>
+            <button ng-click="signIn()">Sign In</button>
+
+            <h4>Result</h4>
+            {[{ profile.fullname }]}
+          </section>
+
         </div>
 
     </div>

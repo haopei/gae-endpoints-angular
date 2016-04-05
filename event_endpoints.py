@@ -34,7 +34,7 @@ STORED_GREETINGS = GreetingCollection(items=[
 ])
 
 
-@endpoints.api(name='events', version='v1')
+@endpoints.api(name='events', version='v1', allowed_client_ids=[WEB_CLIENT_ID])
 class HelloWorldApi(remote.Service):
     """helloworld API v1."""
 

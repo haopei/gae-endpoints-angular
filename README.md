@@ -51,6 +51,13 @@ This repo demonstrates how we can initialize an Angular app to work with Google 
     };
     ```
 
+### OAuth Implementation
+1. When the Google Javascript client library is loaded, the `onload=init` callback also loads the oauth2 service for usage.
+2. Once OAuth2 is loaded, the 'Sign In' button becomes available in index.html which calls the `$scope.signIn` function.
+3. The `$scope.signIn()` initializes the authorization process using the `gapi.oauth.authorize()`. This is where Google's sign in popup window appears, and login is required. Once the authorization process is complete, it calls the callback which requests the user's information: `gapi.client.oauth2.userinfo.get()`.
+4. The retrieved user information is added to the scope and augmented into the DOM.
+
+
 ### Resources
 - https://cloud.google.com/solutions/angularjs-cloud-endpoints-recipe-for-building-modern-web-applications
 - http://anandsekar.github.io/initialize-google-appengine-and-angularjs/
